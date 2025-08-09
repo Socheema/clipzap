@@ -1,0 +1,10 @@
+@import "tailwindcss";
+body {
+  font-family: "Space Grotesk";
+  background: #000080;
+}
+
+.bold{
+    font-family: "Space Grotesk";
+    font-weight: 700;
+}
