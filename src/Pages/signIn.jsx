@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
@@ -6,6 +6,11 @@ import NavbarComponent from "../Components/header";
 import Footer from "../Components/footer";
 
 function SignIn() {
+
+useEffect(()=>{
+  window.scrollTo(0, 0)
+})
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -56,15 +61,20 @@ function SignIn() {
   };
 
   return (
-    <>
+    <div className="relative h-screen">
+      <div
+        className="absolute w-[70vw] h-full left-[15vw] top-[-225px] bg-blue-500 pointer-events-none"
+        style={{
+          filter: "blur(120px)",
+          opacity: 0.5,
+        }}
+      />
       <NavbarComponent />
       <div className="mx-auto max-w-md">
         <div className="flex flex-col items-center justify-center min-h-screen text-white px-8 py-12">
           <div className="self-start">
             <h1 className="text-4xl font-bold mb-4">Sign In</h1>
-            <p className="text-blue-600">
-              Please enter your credentials.
-            </p>
+            <p className="text-blue-600">Please enter your credentials.</p>
           </div>
 
           <form
@@ -141,12 +151,15 @@ function SignIn() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
-              <p className="text-sm flex items-center justify-end mt-2">  <Link
-                to="/sign-up"
-                className="text-blue-500 ml-2 hover:underline"
-              >
-                Forget password?
-              </Link></p>
+              <p className="text-sm flex items-center justify-end mt-2">
+                {" "}
+                <Link
+                  to="/sign-up"
+                  className="text-blue-500 ml-2 hover:underline"
+                >
+                  Forget password?
+                </Link>
+              </p>
               <button
                 type="button"
                 onClick={toggleConfirmPasswordVisibility}
@@ -199,7 +212,7 @@ function SignIn() {
         </div>
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 

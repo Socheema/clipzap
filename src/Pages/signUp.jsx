@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
@@ -6,6 +6,10 @@ import NavbarComponent from "../Components/header";
 import Footer from "../Components/footer";
 
 function SignUp() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -57,7 +61,15 @@ function SignUp() {
   };
 
   return (
-    <>
+    <div className="relative h-screen">
+      <div
+        className="absolute w-[70vw] h-full left-[15vw] top-[-225px] bg-blue-500 pointer-events-none"
+        style={{
+          filter: "blur(120px)",
+          opacity: 0.5,
+        }}
+      />
+
       <NavbarComponent />
       <div className="mx-auto max-w-md">
         <div className="flex flex-col items-center justify-center min-h-screen text-white px-8 py-12">
@@ -213,7 +225,7 @@ function SignUp() {
         </div>
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 
