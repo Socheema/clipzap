@@ -3,6 +3,7 @@ import Index from "./Pages/index";
 import SignIn from "./Pages/signIn";
 import SignUp from "./Pages/signUp";
 import Features from "./Pages/features";
+import Links from "./Pages/links";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/features" element={<Features />} />
+      <Route path="/links" element={<Links />} />
 
 
     </Routes>
