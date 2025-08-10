@@ -5,10 +5,11 @@ import { FcGoogle } from "react-icons/fc";
 import NavbarComponent from "../Components/header";
 import Footer from "../Components/footer";
 
-function SignIn() {
+function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -24,7 +25,7 @@ function SignIn() {
     e.preventDefault();
     setError("");
 
-    if (!email.trim() || !password || !confirmPassword) {
+    if (!name.trim() || !email.trim() || !password || !confirmPassword) {
       setError("All fields are required.");
       return;
     }
@@ -44,7 +45,7 @@ function SignIn() {
       // TODO: call signup API here
       console.log("Form submitted:", { name, email, password });
       // Reset
-
+      setName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
@@ -61,9 +62,9 @@ function SignIn() {
       <div className="mx-auto max-w-md">
         <div className="flex flex-col items-center justify-center min-h-screen text-white px-8 py-12">
           <div className="self-start">
-            <h1 className="text-4xl font-bold mb-4">Sign In</h1>
+            <h1 className="text-4xl font-bold mb-4">Sign Up</h1>
             <p className="text-blue-600">
-              Please enter your credentials.
+              Please enter your credentials to create an account.
             </p>
           </div>
 
@@ -77,6 +78,25 @@ function SignIn() {
                 {error}
               </div>
             )}
+
+            <div className="mb-4">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-white"
+              >
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                autoComplete="name"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md text-white focus:outline-none focus:ring-blue-500"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
 
             <div className="mb-4">
               <label
@@ -141,12 +161,6 @@ function SignIn() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
-              <p className="text-sm flex items-center justify-end mt-2">  <Link
-                to="/sign-up"
-                className="text-blue-500 ml-2 hover:underline"
-              >
-                Forget password?
-              </Link></p>
               <button
                 type="button"
                 onClick={toggleConfirmPasswordVisibility}
@@ -166,7 +180,7 @@ function SignIn() {
               disabled={submitting}
               className="w-full mt-6 mb-4 px-4 py-2 bg-blue-600 disabled:opacity-60 hover:bg-blue-700 text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
             >
-              {submitting ? "Creating account..." : "Sign In"}
+              {submitting ? "Creating account..." : "Sign Up"}
             </button>
           </form>
 
@@ -180,19 +194,19 @@ function SignIn() {
             <button
               type="button"
               className="flex items-center justify-center gap-2 px-4 py-2 bg-white text-blue-600 font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-              onClick={() => console.log("Google signin clicked")}
+              onClick={() => console.log("Google signup clicked")}
             >
               <FcGoogle />
               Continue with Google
             </button>
 
             <p className="text-sm">
-              New here?
+              Do you have an account?
               <Link
-                to="/sign-up"
+                to="/sign-in"
                 className="text-blue-500 ml-2 hover:underline"
               >
-                Create an account.
+                Sign In.
               </Link>
             </p>
           </div>
@@ -203,4 +217,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignUp;
