@@ -63,7 +63,7 @@ function NavbarComponent() {
           </nav>
         </div>
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#000080] absolute top-full left-0 min-h-screen w-full transition transition-300 px-6 py-2 ease-in-out flex gap-6 flex-col text-2xl backdrop-blur-xl">
+          <div className="md:hidden bg-[#000080]  absolute top-full left-0 min-h-screen w-full transition transition-300 px-6 py-2 ease-in-out flex gap-6 flex-col text-2xl backdrop-blur-xl">
             <Link className=" text-[#fff] px-2 block" to={"/"}>
               Home
             </Link>

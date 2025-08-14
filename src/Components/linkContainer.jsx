@@ -31,7 +31,7 @@ function LinkContainer() {
       transition={{ duration: 0.3 }}
     >
       <h3 style={{ marginBottom: 12 }}>Links</h3>
-      <div style={{ overflowX: "auto" }}>
+      <div style={{ overflowX: "auto" }} className="border border-blue-500 rounded-lg outline-none shadow-lg px-2 py-2">
         <table
           style={{ borderCollapse: "collapse", width: "100%", minWidth: 900 }}
         >
